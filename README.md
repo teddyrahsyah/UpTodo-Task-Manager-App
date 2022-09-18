@@ -1,4 +1,4 @@
-# up_todo_app
+# Up Todo - Task Manager App
 
 Todo App UI Slicing Project designed by Amir Baghestani
 
