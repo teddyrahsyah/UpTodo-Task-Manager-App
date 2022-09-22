@@ -11,13 +11,13 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  // @override
-  // void initState() {
-  //   Timer(const Duration(seconds: 3), () {
-  //     Navigator.pushNamed(context, "/intro");
-  //   });
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushNamed(context, "/intro");
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

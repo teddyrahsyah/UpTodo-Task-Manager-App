@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:up_todo_app/ui/pages/intro_page.dart';
 import 'package:up_todo_app/ui/pages/splash_page.dart';
+import 'package:up_todo_app/ui/pages/start_page.dart';
 
 void main() {
   runApp(const UpTodoApp());
@@ -18,6 +19,7 @@ class UpTodoApp extends StatelessWidget {
       routes: {
         "/": (context) => SplashPage(),
         "/intro": (context) => IntroPage(),
+        "/start": (context) => StartPage(),
       },
     );
   }
