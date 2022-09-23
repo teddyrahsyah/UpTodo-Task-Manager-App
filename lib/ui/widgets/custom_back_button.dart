@@ -6,7 +6,7 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12, left: 10),
+      margin: const EdgeInsets.only(top: 12, left: 10),
       child: IconButton(
         onPressed: () {
           Navigator.pop(context);

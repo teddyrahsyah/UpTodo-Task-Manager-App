@@ -9,7 +9,7 @@ class StartPage extends StatelessWidget {
   Widget headline() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 58),
+      margin: const EdgeInsets.only(top: 58),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -17,7 +17,7 @@ class StartPage extends StatelessWidget {
             "Welcome to UpTodo",
             style: whiteTextStyle.copyWith(fontSize: 32, fontWeight: bold),
           ),
-          SizedBox(height: 26),
+          const SizedBox(height: 26),
           Text(
             "Please login to your account or create\nnew account to continue",
             style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: regular),
@@ -28,24 +28,24 @@ class StartPage extends StatelessWidget {
     );
   }
 
-  Widget loginButton() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 28, left: 24, right: 24,),
-      child: CustomButton(
-        title: "LOGIN",
-        onPressed: () {},
-      ),
+  Widget loginButton(BuildContext context) {
+    return CustomButton(
+      title: "LOGIN",
+      onPressed: () {
+        Navigator.pushNamed(context, "/login");
+      },
+      margin: const EdgeInsets.only(bottom: 28, left: 24, right: 24,),
     );
   }
 
-  Widget registerButton() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 30, left: 24, right: 24,),
-      child: CustomButton(
-        title: "CREATE ACCOUNT",
-        onPressed: () {},
-        isActive: false,
-      ),
+  Widget registerButton(BuildContext context) {
+    return CustomButton(
+      title: "CREATE ACCOUNT",
+      onPressed: () {
+        Navigator.pushNamed(context, "/register");
+      },
+      isActive: false,
+      margin: const EdgeInsets.only(bottom: 30, left: 24, right: 24,),
     );
   }
 
@@ -54,17 +54,15 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SafeArea(
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomBackButton(),
-              headline(),
-              Spacer(),
-              loginButton(),
-              registerButton(),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomBackButton(),
+            headline(),
+            const Spacer(),
+            loginButton(context),
+            registerButton(context),
+          ],
         ),
       ),
     );

@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
   final Function() onPressed;
   final EdgeInsets margin;
   final bool isActive;
+  final String iconPath;
 
   const CustomButton({
     Key? key,
@@ -15,6 +16,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.margin = EdgeInsets.zero,
     this.isActive = true,
+    this.iconPath = "",
   }) : super(key: key);
 
   @override
@@ -23,9 +25,13 @@ class CustomButton extends StatelessWidget {
         ? Container(
             height: 48,
             width: double.infinity,
+            margin: margin,
             child: TextButton(
               onPressed: onPressed,
-              style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+              style: TextButton.styleFrom(
+                backgroundColor: kPrimaryColor,
+                primary: kBackgroundColor,
+              ),
               child: Text(
                 title,
                 style: fullWhiteTextStyle.copyWith(
@@ -36,17 +42,38 @@ class CustomButton extends StatelessWidget {
         : Container(
             height: 48,
             width: double.infinity,
+            margin: margin,
             child: OutlinedButton(
-              onPressed: onPressed,
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(width: 2.0, color: kPrimaryColor),
-              ),
-              child: Text(
-                title,
-                style: fullWhiteTextStyle.copyWith(
-                    fontSize: 16, fontWeight: regular),
-              ),
-            ),
+                onPressed: onPressed,
+                style: OutlinedButton.styleFrom(
+                  primary: kPrimaryColor,
+                  side: BorderSide(width: 2.0, color: kPrimaryColor),
+                ),
+                child: iconPath.isEmpty
+                    ? Text(
+                        title,
+                        style: fullWhiteTextStyle.copyWith(
+                            fontSize: 16, fontWeight: regular),
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24,
+                            height: 24,
+                            margin: const EdgeInsets.only(right: 10),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                              image: AssetImage(iconPath),
+                            )),
+                          ),
+                          Text(
+                            title,
+                            style: fullWhiteTextStyle.copyWith(
+                                fontSize: 16, fontWeight: regular),
+                          ),
+                        ],
+                      )),
           );
   }
 }

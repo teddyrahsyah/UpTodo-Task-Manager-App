@@ -3,17 +3,29 @@ import 'package:up_todo_app/shared/theme.dart';
 
 class IntroItem extends StatelessWidget {
   final int index;
-  final String imagePath;
-  final String title;
-  final String subtitle;
 
-  const IntroItem({
+  IntroItem({
     Key? key,
     required this.index,
-    required this.imagePath,
-    required this.title,
-    required this.subtitle,
   }) : super(key: key);
+
+  final List<String> title = [
+    "Manage your tasks",
+    "Create daily routine",
+    "Organize your tasks",
+  ];
+
+  final List<String> subtitle = [
+    "You can easily manage all of your daily\ntasks in DoMe for free",
+    "In Uptodo  you can create your\npersonalized routine to stay productive",
+    "You can organize your daily tasks by\nadding your tasks into separate categories",
+  ];
+
+  final List<String> imagePath = [
+    "assets/images/img_intro_1.png",
+    "assets/images/img_intro_2.png",
+    "assets/images/img_intro_3.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +38,7 @@ class IntroItem extends StatelessWidget {
               height: 278,
               margin: EdgeInsets.only(bottom: 50),
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(imagePath))),
+                  image: DecorationImage(image: AssetImage(imagePath[index]))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,12 +83,12 @@ class IntroItem extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              title,
+              title[index],
               style: whiteTextStyle.copyWith(fontSize: 32, fontWeight: bold),
             ),
             SizedBox(height: 40),
             Text(
-              subtitle,
+              subtitle[index],
               style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: regular),
               textAlign: TextAlign.center,
             ),

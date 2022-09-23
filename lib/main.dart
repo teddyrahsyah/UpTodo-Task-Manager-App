@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:up_todo_app/ui/pages/intro_page.dart';
+import 'package:up_todo_app/ui/pages/login_page.dart';
 import 'package:up_todo_app/ui/pages/splash_page.dart';
 import 'package:up_todo_app/ui/pages/start_page.dart';
 
@@ -17,9 +18,11 @@ class UpTodoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'UpTodo - Task Manager App',
       routes: {
-        "/": (context) => SplashPage(),
-        "/intro": (context) => IntroPage(),
-        "/start": (context) => StartPage(),
+        "/": (context) => const SplashPage(),
+        "/intro": (context) => const IntroPage(),
+        "/start": (context) => const StartPage(),
+        "/login": (context) => const LoginPage(),
+        "/register": (context) => const LoginPage(),
       },
     );
   }
