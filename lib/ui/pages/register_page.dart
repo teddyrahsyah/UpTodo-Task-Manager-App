@@ -4,8 +4,8 @@ import 'package:up_todo_app/ui/widgets/custom_back_button.dart';
 import 'package:up_todo_app/ui/widgets/custom_button.dart';
 import 'package:up_todo_app/ui/widgets/custom_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
           right: 24,
         ),
         child: Text(
-          "Login",
+          "Register",
           style: whiteTextStyle.copyWith(fontSize: 32, fontWeight: bold),
         ),
       );
@@ -41,9 +41,18 @@ class LoginPage extends StatelessWidget {
         );
       }
 
-      Widget loginButton() {
+      Widget confirmPasswordFormField() {
+        return const CustomFormField(
+          label: "Confirm Password",
+          hintText: "Enter your Password again",
+          obscureText: true,
+          margin: EdgeInsets.only(top: 25),
+        );
+      }
+
+      Widget registerButton() {
         return CustomButton(
-          title: "Login",
+          title: "Register",
           onPressed: () {},
           margin: const EdgeInsets.only(top: 35),
         );
@@ -55,7 +64,8 @@ class LoginPage extends StatelessWidget {
           children: [
             usernameFormField(),
             passwordFormField(),
-            loginButton(),
+            confirmPasswordFormField(),
+            registerButton(),
           ],
         ),
       );
@@ -81,7 +91,7 @@ class LoginPage extends StatelessWidget {
               child: Text(
                 "or",
                 style:
-                    grayTextStyle.copyWith(fontSize: 16, fontWeight: regular),
+                grayTextStyle.copyWith(fontSize: 16, fontWeight: regular),
               ),
             ),
             const SizedBox(width: 3),
@@ -97,20 +107,20 @@ class LoginPage extends StatelessWidget {
       );
     }
 
-    Widget loginOption() {
+    Widget registerOption() {
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
             CustomButton(
-              title: "Login with Google",
+              title: "Register with Google",
               onPressed: () {},
               isActive: false,
               iconPath: "assets/icons/icon_google.png",
             ),
             const SizedBox(height: 20),
             CustomButton(
-              title: "Login with Apple",
+              title: "Register with Apple",
               onPressed: () {},
               isActive: false,
               iconPath: "assets/icons/icon_apple.png",
@@ -120,22 +130,22 @@ class LoginPage extends StatelessWidget {
       );
     }
 
-    Widget registerPageButton() {
+    Widget loginPageButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, "/register");
+          Navigator.pushNamed(context, "/login");
         },
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 30),
           alignment: Alignment.center,
           child: RichText(
             text: TextSpan(
-                text: 'Don\'t have an account?',
+                text: 'Already have an account?',
                 style:
-                    grayTextStyle.copyWith(fontSize: 12, fontWeight: regular),
+                grayTextStyle.copyWith(fontSize: 12, fontWeight: regular),
                 children: <TextSpan>[
                   TextSpan(
-                    text: ' Register',
+                    text: ' Login',
                     style: whiteTextStyle.copyWith(
                         fontSize: 12, fontWeight: regular),
                   )
@@ -156,8 +166,8 @@ class LoginPage extends StatelessWidget {
               headline(),
               inputSection(),
               optionSeparator(),
-              loginOption(),
-              registerPageButton(),
+              registerOption(),
+              loginPageButton(),
             ],
           ),
         ),

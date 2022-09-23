@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:up_todo_app/ui/pages/intro_page.dart';
 import 'package:up_todo_app/ui/pages/login_page.dart';
+import 'package:up_todo_app/ui/pages/register_page.dart';
 import 'package:up_todo_app/ui/pages/splash_page.dart';
 import 'package:up_todo_app/ui/pages/start_page.dart';
 
@@ -22,7 +23,7 @@ class UpTodoApp extends StatelessWidget {
         "/intro": (context) => const IntroPage(),
         "/start": (context) => const StartPage(),
         "/login": (context) => const LoginPage(),
-        "/register": (context) => const LoginPage(),
+        "/register": (context) => const RegisterPage(),
       },
     );
   }
